@@ -1,0 +1,21 @@
+{
+  "name": "Boilerplate-Utsav",
+  "description": "A Boilerplate for MEAN Stack Developement",
+  "main": "server.js",
+  "authors": [
+    "Utsav Kapoor <utsav.kapoor@asu.edu>"
+  ],
+  "homepage": "https://github.com/utsavkapoor/URL_Shortner_WebApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+],
+"dependencies": {
+		"bootstrap": "latest",
+		"angular": "latest",
+		"angular-route": "latest"
+	}
+}
