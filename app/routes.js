@@ -1,8 +1,11 @@
 module.exports = (app) => {
+
     app.route('/')
         .get(function(req, res) {
     		  res.sendFile(process.cwd() + '/public/index.html');
         })
+
+
 
     // Respond not found to all the wrong routes
     app.use(function(req, res, next){

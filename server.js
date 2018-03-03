@@ -11,6 +11,9 @@ const app = express();
 const routes = require('./app/routes');
 const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json()); // parse application/json

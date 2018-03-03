@@ -17,11 +17,24 @@ body {
 	margin-top: 60px;
 }
 
+.box {
+	margin-top: 40px;
+}
+
 ol {
 	list-style-position: inside;
 }
 ul {
 	list-style-type: none;
+}
+
+.italia {
+	font-style: italic;
+	color:red;
+}
+
+.signup{
+	margin-top: 60px;
 }
 
 a {

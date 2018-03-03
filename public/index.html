@@ -2,14 +2,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-
-   <title>Starter MEAN Single Page Application</title>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starter MEAN Single Page Application</title>
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 </head>
-<body>
+<body ng-app="StartPage">
+<div class="container" ng-controller="signupForm as controller1">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+        <h1>Shorten URL for Free</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 box">
+            <div class="panel panel-info">
+            <div class="panel-heading">What is URL Shortening ?</div>
+        <ol class="list-group well">
+            <li class="list-group-item well">
+                URL shortening is a technique in which a URL may be made substantially shorter and still direct to the required page.
+                This is achieved by using a redirect which links to the web page that has a long URL.
+            <li class="list-group-item well">
+                For example - <span class="italia">"http://example.com/assets/category_B/subcategory_C/Foo/"</span> can be shortened to <span class="italia">"http://example.com/foo"</span>.
+            </li>
+        </ol>
+        </div>
+        </div>
 
-   we did it!
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 box signup">
+            <form role="form" name="signup" ng-submit="submitForm()" novalidate>
+                <h2>Quick Sign Up</h2>
+                    <div class="form-group">
+                        <input type="text" name="user_name" ng-model="user.user_name" class="form-control input-lg" placeholder="User Name" required>
+                        <p ng-show="signup.user_name.$invalid && signup.user_name.$touched">Your Username is required</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" ng-model="user.email" class="form-control input-lg" placeholder="Email" required>
+                        <p ng-show="signup.email.$invalid && !signup.email.$pristine && signup.name.$touched">Enter a Valid Email ID</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" ng-model = "user.password" class="form-control input-lg" placeholder="Password" ng-minlength="8" required >
+                        <p ng-show="signup.password.$invalid && !signup.password.$pristine && signup.password.$touched">Enter Password</p>
+                        <p ng-show="signup.password.$error.minlength">Password too short.</p>
+                    </div>
+                <button type="submit" class="btn btn-primary btn-lg" ng-disabled="userForm.$invalid">Create Free Account</button>
+            </form>
+            <small>
+                Already have account? <a ui-sref="/public/views/SignIn.html" class="router-link">Sign In</a>
+            </small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Why is it used ?
+                </div>
+                <ol class="list-group well">
+                    <li class="list-group-item well well-lg">
+                        Reducing the amount of typing, making it easier for a person to remember, itention of permalink, beautify a link.
+                    </li>
+                    <li class="list-group-item well well-lg">
+                        Often Used by Messaging companies and social networks which limit the number of characters in a post or a message.
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script src="/public/js/modules/startpage.module.js"></script>
+<script src="/public/js/controllers/startpage.controller.js"></script>
 </body>
 </html>
