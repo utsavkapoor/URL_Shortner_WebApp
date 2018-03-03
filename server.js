@@ -4,7 +4,7 @@
  * ***************************************************/
 
 'use strict';
-
+require('dotenv').config();
 const fs = require('fs');
 const express = require('express');
 const app = express();
@@ -15,6 +15,12 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const port = process.env.PORT || 8000;
+
+mongoose.connect(process.env.MongodbURL);
+
+const db = mongoose.connection;
+db.on('error',console.error.bind(console,'connection error'));
+db.once('open', () => {});
 
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
