@@ -20,6 +20,19 @@ const schema = new mongoose.Schema({
     }
 });
 
+schema.statics.authenticate = (email,password,callback) => {
+    user.findOne({email : email}, (error,User) => {
+        if(error) {
+            return callback(error);
+        } else if(!User){
+            return callback(error);
+        } else {
+            bcrypt.compare(password,user.password);
+        }
+    })
+
+}
+
 schema.pre('save', function(next){
     let user = this;
     bcrypt.hash(user.password, 100, function(err,hash){
